@@ -3,10 +3,17 @@ version: 2
 models:
   - name: sales
     description: "DBT model for the sales table" 
-       
+  - name: product
+    description: "DBT model for the product table"
+
 sources:
   - name: sales
     database: MYDB
     schema: PUBLIC
     tables:
       - name: SALES_SRC
+  - name: product
+    database: MYDB
+    schema: PUBLIC
+    tables:
+      - name: PRODUCT_SRC
