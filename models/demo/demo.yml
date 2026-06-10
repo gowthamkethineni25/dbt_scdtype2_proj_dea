@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: sales
+    description: "DBT model for the sales table" 
+       
+sources:
+  - name: sales
+    database: MYDB
+    schema: PUBLIC
+    tables:
+      - name: SALES_SRC
