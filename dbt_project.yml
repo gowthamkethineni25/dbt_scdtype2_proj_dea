@@ -2,12 +2,20 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'my_new_project'
+name: 'gowtham_dbt_workshop'
 version: '1.0.0'
 config-version: 2
 
 # This setting configures which "profile" dbt uses for this project.
 profile: 'default'
+
+vars:
+
+   wrk_schema: BRONZE
+   file_format_csv: MYDB.BRONZE.MY_CSV_FORMAT
+   purge_status: FALSE
+   stage_name: MYDB.BRONZE.s3_test_stage
+   rawhist_db: MYDB
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
@@ -34,9 +42,16 @@ clean-targets:         # directories to be removed by `dbt clean`
 # instead be materialized as tables. Any models you add to the root of the models folder will 
 # continue to be built as views. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
-
 models:
-  my_new_project:
-    # Applies to all files under models/example/
-    example:
+  gowtham_dbt_workshop:
+    silver:
+      +database: PC_DBT_DB
+      +schema: silver
       +materialized: table
+
+    gold:
+      +database: PC_DBT_DB
+      +schema: gold
+      +materialized: view
+
+        
