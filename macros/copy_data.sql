@@ -46,7 +46,7 @@ FROM @{{ var('stage_name') }}
 
 )
 
-FILE_FORMAT = {{var ('file_format_json') }}
+FILE_FORMAT = {{var ('file_format_csv') }}
 
 PURGE={{ var('purge_status') }}
 
