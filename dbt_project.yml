@@ -45,10 +45,12 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   gowtham_dbt_workshop:
     silver:
+      +database: PC_DBT_DB
       +schema: silver
       +materialized: table
 
     gold:
+      +database: PC_DBT_DB
       +schema: gold
       +materialized: view
 
