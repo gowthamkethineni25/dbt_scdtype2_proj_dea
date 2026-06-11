@@ -5,6 +5,8 @@ models:
     description: "DBT model for the sales table" 
   - name: product
     description: "DBT model for the product table"
+  - name: purchase
+    description: "DBT model for the purchase table"
 
 sources:
   - name: sales
@@ -17,3 +19,8 @@ sources:
     schema: PUBLIC
     tables:
       - name: PRODUCT_SRC
+  - name: purchase
+    database: MYDB
+    schema: PUBLIC
+    tables:
+      - name: PURCHASE_SRC
