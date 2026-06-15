@@ -11,6 +11,8 @@ models:
     description: "DBT model for the ephemeral clean orders"
   - name: final_orders
     description: "DBT model for the final orders table"
+  - name: session
+    description: "DBT model for the session table"
 
 sources:
   - name: sales
@@ -34,3 +36,14 @@ sources:
     tables:
       - name: BASE_ORDERS
   
+  - name: patient
+    database: MYDB
+    schema: PUBLIC
+    tables:
+      - name: PATIENT_SRC
+
+  - name: session
+    database: MYDB
+    schema: BRONZE
+    tables:
+      - name: SESSION_SRC
